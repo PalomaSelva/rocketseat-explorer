@@ -20,12 +20,16 @@ h1 {
 }
 
 body {
-  max-width: 158rem;
-  -webkit-font-smoothing: antialiased;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-  padding: 0 10rem;
+  padding: 3rem;
+  width: 100vw;
   margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 3rem 1fr auto;
+  gap: 10rem;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -41,8 +45,11 @@ main {
 
 header {
   font-family: 'JetBrains Mono', monospace;
+  flex-direction: column;
+  gap: 2rem;
   justify-content: space-between;
-  margin-top: 7rem;
+  align-items: center;
+  grid-area: header;
 }
 
 nav {
@@ -65,13 +72,19 @@ span {
 }
 
 main {
-  margin-top: 10rem;
-  gap: 8rem;
+  gap: 4rem;
+  flex-direction: column;
   text-align: center;
+  grid-area: main;
+}
+
+.image-section {
+  max-width: 350px;
 }
 
 .image-section img {
-  width: 450px;
+  width: 100%;
+
 }
 
 .section-text {
@@ -87,13 +100,35 @@ main {
 }
 
 footer {
+  grid-area: footer;
   border-top: 1px solid var(--pink);
   padding: 3rem;
   width: fit-content;
+  margin: 0 auto;
   color: var(--white);
-  position: absolute;
-  transform: translate( -50%);
-  left: 50%;
-  bottom: 0;
   text-align: center;
+}
+
+
+@media only screen and (min-width: 700px) {
+  body {
+    height: 100vh;
+    max-width: 144rem;
+    padding: 7rem 2rem 2rem;
+  }
+
+  header {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  main {
+    flex-direction: row;
+    gap: 8rem;
+  }
+
+  .image-section {
+    width: 450px;
+    min-width: 300px;
+  }
 }
